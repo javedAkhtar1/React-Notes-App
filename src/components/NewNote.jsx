@@ -1,10 +1,8 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 
 const ACTIONS = {
   NOTE_HEADING: "heading",
   NOTE_CONTENT: "content",
-  NOTE_TIME: "time",
-  NOTE_DATE: "date",
 };
 
 function reducer(state, action) {
@@ -13,10 +11,6 @@ function reducer(state, action) {
       return { ...state, noteHeading: action.payload.heading };
     case ACTIONS.NOTE_CONTENT:
       return { ...state, noteContent: action.payload.content };
-    case ACTIONS.NOTE_TIME:
-      return { ...state, noteTime: action.payload.time };
-    case ACTIONS.NOTE_DATE:
-      return { ...state, noteDate: action.payload.content };
     default:
       return state;
   }
@@ -26,9 +20,25 @@ function NewNote() {
   const [state, dispatch] = useReducer(reducer, {
     noteHeading: "",
     noteContent: "",
-    noteTime: "",
-    noteDate: "",
   });
+
+  const [notes, setNotes] = useState([]);
+
+  const handleSave = () => {
+    if (state.noteHeading.trim() === "" && state.noteContent.trim() === "") return;
+    
+    const date = new Date();
+    const newNote = {
+      ...state,
+      noteTime: date.toLocaleTimeString(),
+      noteDate: date.toLocaleDateString(),
+    };
+    setNotes([...notes, newNote]);
+
+    dispatch({ type: ACTIONS.NOTE_HEADING, payload: { heading: "" } });
+    dispatch({ type: ACTIONS.NOTE_CONTENT, payload: { content: "" } });
+  };
+  // {console.log(notes)}
 
   return (
     <>
@@ -57,7 +67,9 @@ function NewNote() {
             })
           }
         ></textarea>
-        <button className="save-btn">Save</button>
+        <button className="save-btn" onClick={handleSave}>
+          Save
+        </button>
       </div>
     </>
   );
