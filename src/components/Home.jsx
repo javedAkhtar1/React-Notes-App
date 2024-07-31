@@ -14,6 +14,13 @@ function Home() {
       </div>
       <div className="notes-container">
         <Note />
+        <Note />
+        <Note />
+        <Note />
+        <Note />
+        <Note />
+        <Note />
+        <Note />
       </div>
     </>
   );
