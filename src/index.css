@@ -57,18 +57,24 @@ body {
 .note {
   background-color: #464646;
   max-width: 300px;
+  min-height: 300px;
+  max-height: 300px;
   margin: 10px 20px;
   padding: 20px;
   border-radius: 30px;
-}
-.note h1 {
-  margin-bottom: 10px;
-}
-.note textarea {
-  background-color: #464646;
-  border: none;
-  resize: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   overflow: hidden;
+}
+
+.note p {
+  max-height: 170px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  --webkit-line-clamp: 3;
+  --webkit-box-orient: vertical;
 }
 
 .new-note-container {
