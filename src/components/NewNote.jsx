@@ -33,13 +33,14 @@ function NewNote() {
       ...state,
       noteTime: date.toLocaleTimeString(),
       noteDate: date.toLocaleDateString(),
+      noteId: Date.now()
     };
     setNotes([...notes, newNote]);
 
     dispatch({ type: ACTIONS.NOTE_HEADING, payload: { heading: "" } });
     dispatch({ type: ACTIONS.NOTE_CONTENT, payload: { content: "" } });
   };
-  // {console.log(notes)}
+  {console.log(notes)}
 
   return (
     <>
