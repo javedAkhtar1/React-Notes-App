@@ -1,14 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import Note from "./Note";
-import { NewNoteContext } from "../context/NewNoteProvider";
 
 function Home() {
-  const { setAddNewNote } = useContext(NewNoteContext);
   return (
     <>
       <div className="top-section">
         <h1 className="main-heading">JNotes.</h1>
-        <button className="add-btn" onClick={() => setAddNewNote(true)}>
+        <button className="add-btn">
           Add new note
         </button>
       </div>
