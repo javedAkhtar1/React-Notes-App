@@ -15,12 +15,6 @@ function Home() {
       <div className="notes-container">
         <Note />
         <Note />
-        <Note />
-        <Note />
-        <Note />
-        <Note />
-        <Note />
-        <Note />
       </div>
     </>
   );

@@ -1,4 +1,5 @@
 import React, {useContext} from 'react';
+import { Route, Router } from 'react-router';
 import Home from "./components/Home";
 import NewNote from "./components/NewNote";
 import NewNoteProvider, { NewNoteContext } from "./context/NewNoteProvider";
@@ -16,7 +17,7 @@ const AppContent = () => {
 
   return (
     <>
-      {!addNewNote && <Home />}
+      {!addNewNote && <Home />} 
       {addNewNote && <NewNote />}
     </>
   );
