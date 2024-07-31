@@ -59,7 +59,7 @@ body {
   cursor: pointer;
 }
 
-.add-btn:hover, .save-btn:hover {
+.add-btn:hover, .save-btn:hover, .back-btn:hover {
   background-color: rgb(155, 0, 155);
 }
 
@@ -132,13 +132,13 @@ body {
   font-family: "Nunito", sans-serif; 
 }
 
-.save-btn {
+.save-btn, .back-btn {
   padding:  6px 16px;
   width: 100px;
   font-family: "Nunito", sans-serif;
   font-size: 1.1rem;
   font-weight: 500;
-  margin-inline: auto;
+  /* margin-inline: auto; */
   margin-top: 20px;
   border: none;
   outline: none;
@@ -147,4 +147,11 @@ body {
   color: white;
   cursor: pointer;
   border-radius: 5px;
+}
+
+.buttons {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  align-items: center;
 }

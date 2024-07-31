@@ -1,4 +1,5 @@
 import React, { useReducer, useState } from "react";
+import { Link } from "react-router-dom";
 
 const ACTIONS = {
   NOTE_HEADING: "heading",
@@ -26,7 +27,7 @@ function NewNote() {
 
   const handleSave = () => {
     if (state.noteHeading.trim() === "" && state.noteContent.trim() === "") return;
-    
+
     const date = new Date();
     const newNote = {
       ...state,
@@ -67,9 +68,18 @@ function NewNote() {
             })
           }
         ></textarea>
+        <div className="buttons">
+
+        <Link to={'/'}>
+        <button className="back-btn" onClick={handleSave}>
+          Back
+        </button>
+        </Link>
+
         <button className="save-btn" onClick={handleSave}>
           Save
         </button>
+        </div>
       </div>
     </>
   );
