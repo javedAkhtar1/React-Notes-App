@@ -30,7 +30,7 @@ body {
   height: 80vh;
   margin-top: 20px;
   margin-inline: auto;
-  border: 3px solid yellow;
+  /* border: 3px solid yellow; */
   display: grid;
   justify-content: center;
   gap: 20px;
@@ -51,6 +51,7 @@ body {
   font-weight: 700;
   font-family: "Nunito", sans-serif; 
   background-color: rgb(173, 5, 173);
+  transition: all .1s ease-in-out;
   color: white;
   outline: none;
   border: none;
@@ -79,10 +80,12 @@ body {
 .note p {
   max-height: 170px;
   overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  --webkit-line-clamp: 3;
-  --webkit-box-orient: vertical;
+  /* text-overflow: ellipsis; */
+}
+
+.note-time-details {
+  display: flex;
+  justify-content: space-between;
 }
 
 .new-note-container {
@@ -140,6 +143,7 @@ body {
   border: none;
   outline: none;
   background-color: rgb(173, 5, 173);
+  transition: all .1s ease-in-out;
   color: white;
   cursor: pointer;
   border-radius: 5px;
