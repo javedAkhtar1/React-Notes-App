@@ -14,11 +14,12 @@ function Home() {
           <button className="add-btn">Add new note</button>
         </Link>
       </div>
-      <div className="notes-container">
-        {notes.length === 0 ? (
-          <p>No notes available. Add a new note!</p>
-        ) : (
-          notes.map((note) => (
+      
+      {notes.length === 0 ? (
+        <h3 className="no-note">No notes available. Add a new note!</h3>
+      ) : (
+        <div className="notes-container">
+          {notes.map((note) => (
             <Note
               key={note.noteId}
               heading={note.noteHeading}
@@ -26,9 +27,9 @@ function Home() {
               date={note.noteDate}
               time={note.noteTime}
             />
-          ))
-        )}
-      </div>
+          ))}
+        </div>
+      )}
     </>
   );
 }

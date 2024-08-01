@@ -1,7 +1,6 @@
 import React from 'react'
 
 function Note({heading, content, date, time}) {
-  // const date =  new Date()
   return (
     <>
         <div className='note'>
