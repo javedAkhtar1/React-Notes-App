@@ -14,7 +14,7 @@ function Home() {
           <button className="add-btn">Add new note</button>
         </Link>
       </div>
-      
+
       {notes.length === 0 ? (
         <h3 className="no-note">No notes available. Add a new note!</h3>
       ) : (

@@ -1,4 +1,4 @@
-import React, { useContext, useReducer, useState } from "react";
+import React, { useContext, useReducer } from "react";
 import { Link } from "react-router-dom";
 import { NoteContext } from "../context/NoteContextProvider";
 
@@ -19,14 +19,20 @@ function reducer(state, action) {
 }
 
 function NewNote() {
-  const {notes, addNote} = useContext(NoteContext);  
+  const { addNote } = useContext(NoteContext);
 
   const [state, dispatch] = useReducer(reducer, {
     noteHeading: "",
     noteContent: "",
   });
 
-  // const [notes, setNotes] = useState([]);
+  function formatDate(date) {
+    const day = String(date.getDate()).padStart(2, '0',);
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    
+    return `${day}-${month}-${year}`;
+  }  
 
   const handleSave = () => {
     if (state.noteHeading.trim() === "" && state.noteContent.trim() === "") return;
@@ -35,16 +41,16 @@ function NewNote() {
     const newNote = {
       ...state,
       noteTime: date.toLocaleTimeString(),
-      noteDate: date.toLocaleDateString(),
-      noteId: Date.now()
+      noteDate: formatDate(date),
+      noteId: Date.now(),
     };
-    // setNotes([...notes, newNote]); // coming from the context now
-    addNote(newNote)
+
+    addNote(newNote);
 
     dispatch({ type: ACTIONS.NOTE_HEADING, payload: { heading: "" } });
     dispatch({ type: ACTIONS.NOTE_CONTENT, payload: { content: "" } });
   };
-  {console.log(notes)}
+  // {console.log(notes)}
 
   return (
     <>
@@ -74,17 +80,14 @@ function NewNote() {
           }
         ></textarea>
         <div className="buttons">
-
-        <Link to={'/'}>
-        <button className="back-btn">
-          Back
-        </button>
-        </Link>
+          <Link to={"/"}>
+            <button className="back-btn">Back</button>
+          </Link>
 
           <Link to={"/"}>
-        <button className="save-btn" onClick={handleSave}>
-          Save
-        </button>
+            <button className="save-btn" onClick={handleSave}>
+              Save
+            </button>
           </Link>
         </div>
       </div>

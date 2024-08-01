@@ -35,6 +35,7 @@ body {
   justify-content: center;
   gap: 20px;
   grid-template-columns: repeat(4, minmax(250px, 1fr));
+  cursor: pointer;
 }
 
 @media (max-width: 1050px) {
@@ -85,9 +86,9 @@ body {
 }
 
 .note-time-details {
-  position: relative;
   display: flex;
   justify-content: space-between;
+  color: yellow;
 }
 
 .new-note-container {
@@ -141,7 +142,6 @@ body {
   font-family: "Nunito", sans-serif;
   font-size: 1.1rem;
   font-weight: 500;
-  /* margin-inline: auto; */
   margin-top: 20px;
   border: none;
   outline: none;
