@@ -10,7 +10,6 @@ function App() {
     <Routes>
       <Route path='/' Component={Home} />
       <Route path='/new-note' Component={NewNote} />
-
     </Routes>
     </NoteContextProvider>
   );

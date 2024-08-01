@@ -76,14 +76,16 @@ function NewNote() {
         <div className="buttons">
 
         <Link to={'/'}>
-        <button className="back-btn" onClick={handleSave}>
+        <button className="back-btn">
           Back
         </button>
         </Link>
 
+          <Link to={"/"}>
         <button className="save-btn" onClick={handleSave}>
           Save
         </button>
+          </Link>
         </div>
       </div>
     </>
