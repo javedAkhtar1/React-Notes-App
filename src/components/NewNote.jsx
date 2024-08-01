@@ -1,5 +1,6 @@
-import React, { useReducer, useState } from "react";
+import React, { useContext, useReducer, useState } from "react";
 import { Link } from "react-router-dom";
+import { NoteContext } from "../context/NoteContextProvider";
 
 const ACTIONS = {
   NOTE_HEADING: "heading",
@@ -18,12 +19,14 @@ function reducer(state, action) {
 }
 
 function NewNote() {
+  const {notes, addNote} = useContext(NoteContext);  
+
   const [state, dispatch] = useReducer(reducer, {
     noteHeading: "",
     noteContent: "",
   });
 
-  const [notes, setNotes] = useState([]);
+  // const [notes, setNotes] = useState([]);
 
   const handleSave = () => {
     if (state.noteHeading.trim() === "" && state.noteContent.trim() === "") return;
@@ -35,7 +38,8 @@ function NewNote() {
       noteDate: date.toLocaleDateString(),
       noteId: Date.now()
     };
-    setNotes([...notes, newNote]);
+    // setNotes([...notes, newNote]); // coming from the context now
+    addNote(newNote)
 
     dispatch({ type: ACTIONS.NOTE_HEADING, payload: { heading: "" } });
     dispatch({ type: ACTIONS.NOTE_CONTENT, payload: { content: "" } });
