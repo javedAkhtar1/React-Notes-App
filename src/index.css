@@ -195,7 +195,24 @@ body {
   width: 91%;
   font-size: 1.1rem;
   line-height: 27px;
+  border-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.complete-note-container textarea::-webkit-scrollbar {
+  width: 12px;
+  /* margin-left: 10px; */
+}
+
+.complete-note-container textarea::-webkit-scrollbar-track {
+  background: #464646;
   border-radius: 20px;
+}
+
+.complete-note-container textarea::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 20px; 
 }
 
 .complete-note-container input {
@@ -206,7 +223,7 @@ body {
   font-family: "Nunito", sans-serif; 
   padding: 5px 10px;
   background-color: #464646;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 
 .save-changes-btn, .delete-note-btn {
