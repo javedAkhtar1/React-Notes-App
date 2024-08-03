@@ -19,7 +19,7 @@ function reducer(state, action) {
 }
 
 function NewNote() {
-  const { notes, addNote } = useContext(NoteContext);
+  const { addNote } = useContext(NoteContext);
 
   const [state, dispatch] = useReducer(reducer, {
     noteHeading: "",

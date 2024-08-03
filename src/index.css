@@ -170,3 +170,35 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.complete-note-container {
+  max-width: 1100px;
+  margin-inline: auto;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.complete-note-container h1 {
+  font-size: 3.3rem;
+  text-align: center;
+}
+
+.complete-note-container textarea {
+  background-color: #464646;
+  color: whitesmoke;
+  font-family: "Nunito", sans-serif; 
+  resize: none;
+  border: none;
+  outline: none;
+  margin-top: 20px;
+  padding: 15px;
+  padding-left: 20px;
+  height: 550px;
+  width: 1000px;
+  font-size: 1.1rem;
+  line-height: 27px;
+  border-radius: 30px;
+
+}
