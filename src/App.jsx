@@ -5,8 +5,7 @@ import NewNote from './components/NewNote'
 import NoteContextProvider, { NoteContext } from './context/NoteContextProvider';
 import CompleteNote from './components/CompleteNote';
 
-function App({index}) {
-  const {notes} = useContext(NoteContext)
+function App() {
   return (
     <NoteContextProvider>
     <Routes>
