@@ -19,9 +19,10 @@ function Home() {
         <h3 className="no-note">You have no notes. Add a new note!</h3>
       ) : (
         <div className="notes-container">
-          {notes.map((note) => (
+          {notes.map((note, index) => (
             <Note
               key={note.noteId}
+              index={index}
               heading={note.noteHeading}
               content={note.noteContent}
               date={note.noteDate}

@@ -19,7 +19,7 @@ function reducer(state, action) {
 }
 
 function NewNote() {
-  const { addNote } = useContext(NoteContext);
+  const { notes, addNote } = useContext(NoteContext);
 
   const [state, dispatch] = useReducer(reducer, {
     noteHeading: "",
@@ -46,11 +46,13 @@ function NewNote() {
     };
 
     addNote(newNote);
-
     dispatch({ type: ACTIONS.NOTE_HEADING, payload: { heading: "" } });
     dispatch({ type: ACTIONS.NOTE_CONTENT, payload: { content: "" } });
   };
   // {console.log(notes)}
+  // notes.forEach(note => {
+  //   console.log(note.noteId);
+  // });
 
   return (
     <>

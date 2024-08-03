@@ -35,7 +35,6 @@ body {
   justify-content: center;
   gap: 20px;
   grid-template-columns: repeat(4, minmax(250px, 1fr));
-  cursor: pointer;
 }
 
 @media (max-width: 1050px) {
@@ -77,6 +76,7 @@ body {
   justify-content: space-between;
   gap: 30px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .note p {
