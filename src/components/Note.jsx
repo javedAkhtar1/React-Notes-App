@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { NoteContext } from "../context/NoteContextProvider";
+// import { NoteContext } from "../context/NoteContextProvider";
 
 function Note({ noteId, heading, content, date, time }) {
   return (

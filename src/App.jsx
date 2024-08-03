@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import { Route, Router, Routes } from 'react-router';
+import React from 'react';
+import { Route, Routes } from 'react-router';
 import Home from "./components/Home";
 import NewNote from './components/NewNote'
-import NoteContextProvider, { NoteContext } from './context/NoteContextProvider';
+import NoteContextProvider from './context/NoteContextProvider';
 import CompleteNote from './components/CompleteNote';
 
 function App() {
