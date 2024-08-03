@@ -60,6 +60,7 @@ function NewNote() {
         <label className="note-heading">Note Heading </label>
         <input
           type="text"
+          maxLength={25}
           className="note-heading-input"
           value={state.noteHeading}
           onChange={(e) =>
