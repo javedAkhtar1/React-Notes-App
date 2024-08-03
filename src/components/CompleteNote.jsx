@@ -25,7 +25,10 @@ function CompleteNote() {
         <small className="note-time">02-03-2024</small>
         <small> 01:03:34 PM</small>
       </div>
+      <div className="complete-note-buttons">
       <button className="save-changes-btn">Save Changes</button>
+      <button className="delete-note-btn">Delete Note</button>
+      </div>
     </div>
   );
 }

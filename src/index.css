@@ -141,7 +141,7 @@ body {
   font-family: "Nunito", sans-serif; 
 }
 
-.save-btn, .back-btn, .save-changes-btn {
+.save-btn, .back-btn, .save-changes-btn, .delete-note-btn {
   padding:  6px 16px;
   width: 100px;
   font-family: "Nunito", sans-serif;
@@ -209,8 +209,8 @@ body {
   border-radius: 15px;
 }
 
-.save-changes-btn {
-  width: 180px;
+.save-changes-btn, .delete-note-btn {
+  width: 150px;
   padding: 10px;
 }
 
@@ -226,4 +226,16 @@ body {
   background-color: #464646;
   padding: 5px 8px;
   border-radius: 5px;
+}
+
+.complete-note-buttons {
+  display: flex;
+  gap: 30px;
+}
+
+.delete-note-btn {
+  background-color: rgb(255, 39, 39);
+}
+.delete-note-btn:hover {
+  background-color: rgb(246, 11, 11);
 }
