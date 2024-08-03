@@ -87,10 +87,9 @@ body {
 .note p {
   max-height: 170px;
   overflow: hidden;
-  /* text-overflow: ellipsis; */
 }
 
-.note-time-details .complete-note-time-details {
+.note-time-details {
   display: flex;
   justify-content: space-between;
   color: yellow;

@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
 import Note from "./Note";
 import { Link } from "react-router-dom";
-import { NoteContext } from "../context/NoteContextProvider"; // Adjust the path as needed
+import { NoteContext } from "../context/NoteContextProvider";
 
 function Home() {
-  const { notes } = useContext(NoteContext); // Access notes array from context
-
+  const { notes } = useContext(NoteContext);
   return (
     <>
       <div className="top-section">
@@ -23,6 +22,7 @@ function Home() {
             <Note
               key={note.noteId}
               index={index}
+              noteId={note.noteId} 
               heading={note.noteHeading}
               content={note.noteContent}
               date={note.noteDate}
