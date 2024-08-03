@@ -16,7 +16,7 @@ function Home() {
       </div>
 
       {notes.length === 0 ? (
-        <h3 className="no-note">No notes available. Add a new note!</h3>
+        <h3 className="no-note">You have no notes. Add a new note!</h3>
       ) : (
         <div className="notes-container">
           {notes.map((note) => (
