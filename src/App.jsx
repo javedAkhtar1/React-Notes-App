@@ -8,11 +8,11 @@ import CompleteNote from './components/CompleteNote';
 function App() {
   return (
     <NoteContextProvider>
-    {/* <Routes>
+    <Routes>
       <Route path='/' Component={Home} />
       <Route path='/new-note' Component={NewNote} />
-    </Routes> */}
-    <CompleteNote />
+    </Routes>
+    {/* <CompleteNote /> */}
     </NoteContextProvider>
   );
 }

@@ -130,11 +130,12 @@ body {
 
 .note-heading-input {
   color: whitesmoke;
+  border-radius: 10px !important;
 }
 
 .note-content-input {
   resize: none;
-  border-radius: 20px;
+  border-radius: 10px;
   font-size: 1rem;
   height: 350px;
   color: whitesmoke;
@@ -213,6 +214,22 @@ body {
 .complete-note-container textarea::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 20px; 
+}
+
+.note-content-input::-webkit-scrollbar {
+  width: 12px;
+}
+
+.note-content-input::-webkit-scrollbar-track {
+  background: #464646;
+  border-radius: 20px;
+  /* border-top-left-radius: 0; */
+}
+
+.note-content-input::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 20px; 
+  /* border-top-left-radius: 0; */
 }
 
 .complete-note-container input {
