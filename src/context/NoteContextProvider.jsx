@@ -18,7 +18,7 @@
 
     useEffect(() => {
       localStorage.setItem("notes", JSON.stringify(notes));
-    }, [notes]);
+    }, [notes]);
 
     return (
       <>
