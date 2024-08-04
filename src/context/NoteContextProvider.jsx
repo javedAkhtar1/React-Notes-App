@@ -9,9 +9,13 @@ function NoteContextProvider({ children }) {
     setNotes([...notes, note]);
   };
 
+  const deleteNote = (id) => {
+    setNotes((prevNotes) => prevNotes.filter((note) => note.noteId !== id))
+  }
+
   return (
     <>
-      <NoteContext.Provider value={{ notes, addNote }}>
+      <NoteContext.Provider value={{ notes, addNote, deleteNote }}>
         {children}
       </NoteContext.Provider>
     </>

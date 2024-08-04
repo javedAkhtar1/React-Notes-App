@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { NoteContext } from "../context/NoteContextProvider";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
 function CompleteNote() {
   const {noteId} = useParams(); // gets the noteId from the url 
   // console.log(noteId)
-  const {notes} = useContext(NoteContext)
+  const {notes, deleteNote} = useContext(NoteContext)
   // console.log(notes)
 
   const [noteHeading, setNoteHeading] = useState("");
@@ -32,6 +33,17 @@ function CompleteNote() {
     setNoteText(e.target.value);
   };
 
+  const handleSaveChanges = () => {
+    const note = notes.find((n) => n.noteId === Number(noteId))
+  }
+  
+  const handleDeleteNote = () => {
+    const note = notes.find((n) => n.noteId === Number(noteId))
+    deleteNote(note.noteId)
+    // notes.filter((n) => n.noteId !== Number(noteId));
+    // notes.filter((n) => n.noteId !== Number(note.noteId))  
+  }
+
   return (
     <div className="complete-note-container">
       <input
@@ -46,8 +58,12 @@ function CompleteNote() {
         <small> {noteTime}</small>
       </div>
       <div className="complete-note-buttons">
-      <button className="save-changes-btn">Save Changes</button>
-      <button className="delete-note-btn">Delete Note</button>
+      <Link to={"/"}>
+      <button onClick={handleSaveChanges} className="save-changes-btn">Save Changes</button>
+      </Link>
+      <Link to={"/"}>
+      <button onClick={handleDeleteNote} className="delete-note-btn">Delete Note</button>
+      </Link>
       </div>
     </div>
   );
