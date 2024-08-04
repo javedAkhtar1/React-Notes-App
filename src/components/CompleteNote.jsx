@@ -40,8 +40,6 @@ function CompleteNote() {
   const handleDeleteNote = () => {
     const note = notes.find((n) => n.noteId === Number(noteId))
     deleteNote(note.noteId)
-    // notes.filter((n) => n.noteId !== Number(noteId));
-    // notes.filter((n) => n.noteId !== Number(note.noteId))  
   }
 
   return (
