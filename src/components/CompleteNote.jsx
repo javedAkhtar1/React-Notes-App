@@ -35,6 +35,11 @@ function CompleteNote() {
 
   const handleSaveChanges = () => {
     const note = notes.find((n) => n.noteId === Number(noteId))
+    if (note) {
+      note.noteHeading = noteHeading;
+      note.noteContent = noteText;
+      note.noteTime = new Date().toLocaleTimeString();
+    }
   }
   
   const handleDeleteNote = () => {
@@ -57,11 +62,12 @@ function CompleteNote() {
       </div>
       <div className="complete-note-buttons">
       <Link to={"/"}>
-      <button onClick={handleSaveChanges} className="save-changes-btn">Save Changes</button>
-      </Link>
-      <Link to={"/"}>
       <button onClick={handleDeleteNote} className="delete-note-btn">Delete Note</button>
       </Link>
+      <Link to={"/"}>
+      <button onClick={handleSaveChanges} className="save-changes-btn">Save Changes</button>
+      </Link>
+      
       </div>
     </div>
   );
