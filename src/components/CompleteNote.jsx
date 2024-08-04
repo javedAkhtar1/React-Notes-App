@@ -4,9 +4,9 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
 function CompleteNote() {
-  const {noteId} = useParams(); // gets the noteId from the url 
+  const { noteId } = useParams(); // gets the noteId from the url
   // console.log(noteId)
-  const {notes, deleteNote} = useContext(NoteContext)
+  const { notes, deleteNote } = useContext(NoteContext);
   // console.log(notes)
 
   const [noteHeading, setNoteHeading] = useState("");
@@ -26,33 +26,33 @@ function CompleteNote() {
     }
   }, [noteId, notes]);
 
-//  const checkfornote = notes.find((n) => n.noteId === Number(noteId))
-//  console.log(checkfornote)
+  //  const checkfornote = notes.find((n) => n.noteId === Number(noteId))
+  //  console.log(checkfornote)
 
   const handleChange = (e) => {
     setNoteText(e.target.value);
   };
 
   const handleSaveChanges = () => {
-    const note = notes.find((n) => n.noteId === Number(noteId))
+    const note = notes.find((n) => n.noteId === Number(noteId));
     if (note) {
       note.noteHeading = noteHeading;
       note.noteContent = noteText;
       note.noteTime = new Date().toLocaleTimeString();
     }
-  }
-  
+  };
+
   const handleDeleteNote = () => {
-    const note = notes.find((n) => n.noteId === Number(noteId))
-    deleteNote(note.noteId)
-  }
+    const note = notes.find((n) => n.noteId === Number(noteId));
+    deleteNote(note.noteId);
+  };
 
   return (
     <div className="complete-note-container">
       <input
         type="text"
         value={noteHeading}
-        maxLength={50}
+        // maxLength={50}
         onChange={(e) => setNoteHeading(e.target.value)}
       />
       <textarea value={noteText} onChange={handleChange} />
@@ -61,13 +61,16 @@ function CompleteNote() {
         <small> {noteTime}</small>
       </div>
       <div className="complete-note-buttons">
-      <Link to={"/"}>
-      <button onClick={handleDeleteNote} className="delete-note-btn">Delete Note</button>
-      </Link>
-      <Link to={"/"}>
-      <button onClick={handleSaveChanges} className="save-changes-btn">Save Changes</button>
-      </Link>
-      
+        <Link to={"/"}>
+          <button onClick={handleDeleteNote} className="delete-note-btn">
+            Delete Note
+          </button>
+        </Link>
+        <Link to={"/"}>
+          <button onClick={handleSaveChanges} className="save-changes-btn">
+            Save Changes
+          </button>
+        </Link>
       </div>
     </div>
   );
