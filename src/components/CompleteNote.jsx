@@ -1,10 +1,32 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { NoteContext } from "../context/NoteContextProvider";
+import { useParams } from "react-router";
 
 function CompleteNote() {
-  const [noteHeading, setNoteHeading] = useState("Heading");
-  const [noteText, setNoteText] = useState(
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere vel voluptas accusamus iste distinctio beatae numquam rerum earum ea animi? Incidunt dolores nihil laboriosam reiciendis sit nobis quidem fugit quo, laborum laudantium sint magni mollitia ipsa eaque debitis porro placeat ut, nulla vitae fuga tempora? Porro quo delectus ipsa, atque, culpa voluptatem temporibus hic quas, repudiandae sit molestias earum fuga. Exercitatione"
-  );
+  const {noteId} = useParams(); // gets the noteId from the url 
+  // console.log(noteId)
+  const {notes} = useContext(NoteContext)
+  // console.log(notes)
+
+  const [noteHeading, setNoteHeading] = useState("");
+  const [noteText, setNoteText] = useState("");
+  const [noteTime, setNoteTime] = useState("");
+  const [noteDate, setNoteDate] = useState("");
+
+  useEffect(() => {
+    if (notes.length > 0) {
+      const note = notes.find((n) => n.noteId === Number(noteId));
+      if (note) {
+        setNoteHeading(note.noteHeading);
+        setNoteText(note.noteContent);
+        setNoteDate(note.noteDate);
+        setNoteTime(note.noteTime);
+      }
+    }
+  }, [noteId, notes]);
+
+//  const checkfornote = notes.find((n) => n.noteId === Number(noteId))
+//  console.log(checkfornote)
 
   const handleChange = (e) => {
     setNoteText(e.target.value);
@@ -20,8 +42,8 @@ function CompleteNote() {
       />
       <textarea value={noteText} onChange={handleChange} />
       <div className="complete-note-time-details">
-        <small className="note-time">02-03-2024</small>
-        <small> 01:03:34 PM</small>
+        <small className="note-time">{noteDate}</small>
+        <small> {noteTime}</small>
       </div>
       <div className="complete-note-buttons">
       <button className="save-changes-btn">Save Changes</button>
